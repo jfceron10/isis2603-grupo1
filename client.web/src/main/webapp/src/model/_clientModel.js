@@ -4,7 +4,11 @@ define([], function() {
  
 		 'name' : ''
  ,  
-		 'cc' : ''
+		 'lastname' : ''
+ ,
+                 'cc' : ''
+ ,
+                 'birthDate' : ''
         },
         initialize: function() {
         },
@@ -21,3 +25,18 @@ define([], function() {
     });
     return App.Model._ClientModel;
 });
+
+// Validacion de datos no sirve
+ App.Model.UserModel = App.Model._UserModel.extend({
+        initialize:function(parameters){
+            this.on('invalid',function(model,error){
+                Backbone.trigger('user-model-error', {error: error});
+            });
+        },
+ 
+        validate: function(attrs, options) {
+            if (attrs.lastName == '') {
+                return "You must set a value in Attribute";
+            }
+        }
+    });

@@ -6,6 +6,8 @@
     <tr>
 		 <th>name</th>
 		 <th>value</th>
+                 <th>marca</th>
+                 <th>fechaExpedicion</th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -14,6 +16,8 @@
     <tr>
 		<td><%= htmlEncode(product.getDisplay('name')) %></td>
 		<td><%= htmlEncode(product.getDisplay('value')) %></td>
+ 		<td><%= htmlEncode(product.getDisplay('marca')) %></td>
+  		<td><%= htmlEncode(product.getDisplay('fechaExpedicion')) %></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-product-edit',{id:<%= product.id %>}); return false" >Edit</a> |
@@ -42,6 +46,14 @@
 		<div class="form-group" >
 		<label for="value">value</label>
     	<input type="text" class="form-control" id="value" name="value" placeholder="Enter value" value="<%= product.get('value') %>"/>	
+		</div>
+                <div class="form-group" >
+		<label for="marca">marca</label>
+    	<input type="text" class="form-control" id="marca" name="marca" placeholder="Enter value" value="<%= product.get('marca') %>"/>	
+		</div>
+                <div class="form-group" >
+		<label for="value">fechaExpedicion</label>
+    	<input type="text" class="form-control" id="fechaExpedicion" name="fechaExpedicion" placeholder="Enter value" value="<%= product.get('fechaExpedicion') %>"/>	
 		</div>
     </form>
     </div>

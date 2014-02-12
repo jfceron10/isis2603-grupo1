@@ -31,6 +31,14 @@ define(['model/clientModel'], function(clientModel) {
             Backbone.on(this.componentId + '-' + 'client-save', function(params) {
                 self.save(params);
             });
+            
+            //Mensaje de error - Validación de datos no sirve
+            
+            Backbone.on('user-model-error', function(params) {
+                var error=params.error;
+                Backbone.trigger(self.componentId + '-' + 'error', 
+                         {event: 'user-model', view: self, message: error});
+            });
         },
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-client-create')) {
