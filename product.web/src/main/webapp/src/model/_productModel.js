@@ -8,7 +8,9 @@ define([], function() {
  ,  
 		 'marca' : ''
  ,  
-		 'fechaExpedicion' : ''               
+		 'fechaExpedicion' : ''
+ ,
+                 'pista' : ''
         },
         initialize: function() {
         },

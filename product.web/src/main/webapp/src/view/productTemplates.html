@@ -8,6 +8,7 @@
 		 <th>value</th>
                  <th>marca</th>
                  <th>fechaExpedicion</th>
+                 <th>picture</th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -18,14 +19,18 @@
 		<td><%= htmlEncode(product.getDisplay('value')) %></td>
  		<td><%= htmlEncode(product.getDisplay('marca')) %></td>
   		<td><%= htmlEncode(product.getDisplay('fechaExpedicion')) %></td>
+                <td><%= htmlEncode(product.getDisplay('picture')) %></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-product-edit',{id:<%= product.id %>}); return false" >Edit</a> |
 	<% } %> 
 	<% if(showDelete) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-product-delete',{id:<%= product.id %>}); return false" >Delete</a> 
-	<% } %>    
-	</td>
+	<% } %>
+        <% if(showPicture) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-product-picture',{id:<%= product.id %>}); return false" >Picture</a> |
+	<% } %>
+    </td>
     </tr>
     <% }); %>
     </tbody>

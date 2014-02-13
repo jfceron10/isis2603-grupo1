@@ -5,6 +5,7 @@ define(['model/productModel'], function(productModel) {
             this.listModelClass = options.listModelClass;
             this.showEdit = true;
             this.showDelete = true;
+            this.showPicture = true; //Cambio para mostrar la imagen
             this.editTemplate = _.template($('#product').html());
             this.listTemplate = _.template($('#productList').html());
             if (!options || !options.componentId) {
@@ -24,6 +25,9 @@ define(['model/productModel'], function(productModel) {
             });
             Backbone.on(this.componentId + '-' + 'product-delete', function(params) {
                 self.destroy(params);
+            });
+            Backbone.on(this.componentId + '-' + 'product-picture', function(params) {
+                self.picture(params);
             });
             Backbone.on(this.componentId + '-' + 'post-product-delete', function(params) {
                 self.list(params);
@@ -71,6 +75,33 @@ define(['model/productModel'], function(productModel) {
             var data = params.data;
             if (App.Utils.eventExists(this.componentId + '-' +'instead-product-edit')) {
                 Backbone.trigger(this.componentId + '-' + 'instead-product-edit', {view: this, id: id, data: data});
+            } else {
+                Backbone.trigger(this.componentId + '-' + 'pre-product-edit', {view: this, id: id, data: data});
+                if (this.productModelList) {
+                    this.currentProductModel = this.productModelList.get(id);
+                    this._renderEdit();
+                    Backbone.trigger(this.componentId + '-' + 'post-product-edit', {view: this, id: id, data: data});
+                } else {
+                    var self = this;
+                    this.currentProductModel = new this.modelClass({id: id});
+                    this.currentProductModel.fetch({
+                        data: data,
+                        success: function() {
+                            self._renderEdit();
+                            Backbone.trigger(self.componentId + '-' + 'post-product-edit', {view: this, id: id, data: data});
+                        },
+                        error: function() {
+                            Backbone.trigger(self.componentId + '-' + 'error', {event: 'product-edit', view: self, id: id, data: data, error: error});
+                        }
+                    });
+                }
+            }
+        },
+        picture: function(params) {
+            var id = params.id;
+            var data = params.data;
+            if (App.Utils.eventExists(this.componentId + '-' +'instead-product-picture')) {
+                Backbone.trigger(this.componentId + '-' + 'instead-product-picture', {view: this, id: id});
             } else {
                 Backbone.trigger(this.componentId + '-' + 'pre-product-edit', {view: this, id: id, data: data});
                 if (this.productModelList) {
