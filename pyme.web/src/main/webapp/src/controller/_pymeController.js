@@ -154,3 +154,14 @@ define(['model/pymeModel'], function(pymeModel) {
     });
     return App.Controller._PymeController;
 });
+
+ App.Controller.PymeController = Backbone.View.extend({
+        postInit: function(options){
+            var self = this;
+            Backbone.on('user-model-error', function(params) {
+                var error = params.error;
+                Backbone.trigger(self.componentId + '-' + 'error', 
+                         {event: 'user-model', view: self, error:{ responseText: error}});
+            });
+        } 
+    });

@@ -185,3 +185,14 @@ define(['model/productModel'], function(productModel) {
     });
     return App.Controller._ProductController;
 });
+
+ App.Controller.ProductController = Backbone.View.extend({
+        postInit: function(options){
+            var self = this;
+            Backbone.on('user-model-error', function(params) {
+                var error = params.error;
+                Backbone.trigger(self.componentId + '-' + 'error', 
+                         {event: 'user-model', view: self, error:{ responseText: error}});
+            });
+        } 
+    });
