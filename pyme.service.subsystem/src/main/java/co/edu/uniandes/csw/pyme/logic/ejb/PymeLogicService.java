@@ -9,6 +9,11 @@ import javax.inject.Inject;
 import javax.enterprise.inject.Default;
 
 import co.edu.uniandes.csw.pyme.logic.api.IPymeLogicService;
+import co.edu.uniandes.csw.pyme.logic.dto.PymeDTO;
+import java.util.List;
+
+import co.edu.uniandes.csw.pyme.logic.api.IPymeLogicService;
+
 
 @Default
 @Stateless

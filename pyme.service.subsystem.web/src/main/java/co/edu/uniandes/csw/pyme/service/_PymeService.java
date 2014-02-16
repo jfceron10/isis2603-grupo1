@@ -42,7 +42,7 @@ public abstract class _PymeService {
 	}
 	
 	@PUT
-    @Path("{id}")
+        @Path("{id}")
 	public void updatePyme(@PathParam("id") Long id, PymeDTO pyme){
 		pymeLogicService.updatePyme(pyme);
 	}

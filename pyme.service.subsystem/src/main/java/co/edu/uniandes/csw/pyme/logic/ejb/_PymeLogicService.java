@@ -30,5 +30,9 @@ public abstract class _PymeLogicService implements _IPymeLogicService {
 
 	public void updatePyme(PymeDTO pyme){
 	    persistance.updatePyme(pyme); 
-	}	
+	}
+        
+        public List<PymeDTO> searchPyme(String s) {
+            return persistance.searchPyme(s);
+        }
 }

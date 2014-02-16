@@ -16,7 +16,9 @@ define(['model/pymeModel'], function(pymeModel) {
             
             
             Backbone.on(this.componentId + '-' + 'pyme-search', function(params) {
+                alert("Search!!");
                 App.Delegate.PymeDelegate.search($("#srch").val(), function(data){
+                    alert("Search!!");
                     self.list(data);
                 }, function(error){
                     alert("Error al consultar el servicio");
