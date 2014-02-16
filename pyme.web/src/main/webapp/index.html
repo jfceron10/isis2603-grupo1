@@ -28,8 +28,16 @@
         <![endif]-->
     </head>
     <body>
+        <div align="center">
+                Buscar Por Descripción:<br/>
+            <input type="text" id="srch"/>
+            <br/>
+            <button onclick="Backbone.trigger('pyme-search');return false;">Searchme!!</button>
+        </div>
+        
         <div class="container">
             <div id="main" ></div>
         </div>
+           
     </body>
 </html>

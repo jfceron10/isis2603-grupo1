@@ -13,6 +13,16 @@ define(['model/pymeModel'], function(pymeModel) {
 				this.componentId = options.componentId;
 		    }
             var self = this;
+            
+            
+            Backbone.on(this.componentId + '-' + 'pyme-search', function(params) {
+                App.Delegate.PymeDelegate.search($("#srch").val(), function(data){
+                    self.list(data);
+                }, function(error){
+                    alert("Error al consultar el servicio");
+                });
+            });
+            
             Backbone.on(this.componentId + '-' + 'pyme-create', function(params) {
                 self.create(params);
             });
@@ -31,7 +41,10 @@ define(['model/pymeModel'], function(pymeModel) {
             Backbone.on(this.componentId + '-' + 'pyme-save', function(params) {
                 self.save(params);
             });
+            
+            
         },
+        
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-pyme-create')) {
                 Backbone.trigger(this.componentId + '-' + 'instead-pyme-create', {view: this});
