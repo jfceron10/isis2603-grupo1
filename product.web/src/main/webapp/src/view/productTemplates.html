@@ -25,10 +25,10 @@
     <a onclick="Backbone.trigger('<%= componentId %>-product-edit',{id:<%= product.id %>}); return false" >Edit</a> |
 	<% } %> 
     <% if(showDelete) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-product-delete',{id:<%= product.id %>}); return false" >Delete</a> 
+    <a onclick="Backbone.trigger('<%= componentId %>-product-delete',{id:<%= product.id %>}); return false" >Delete</a> |
 	<% } %>
     <% if(showPicture) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-product-picture',{id:<%= product.id %>}); return false" >Picture</a> |
+    <a onclick="Backbone.trigger('<%= componentId %>-product-picture',{id:<%= product.id %>}); return false" >Picture</a>
 	<% } %>
     </td>
     </tr>
