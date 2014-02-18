@@ -11,6 +11,8 @@ public abstract class _ClientDTO {
 	private Long id;
 	private String name;
 	private String cc;
+        private String lastname;
+        private String birthDate;
 
 	public Long getId() {
 		return id;
@@ -32,6 +34,22 @@ public abstract class _ClientDTO {
  
 	public void setCc(String cc) {
 		this.cc = cc;
+	}
+        
+        public String getLastName() {
+		return lastname;
+	}
+ 
+	public void setLastName(String lastname) {
+		this.lastname = lastname;
+	}
+        
+        public String getBirthDate() {
+		return birthDate;
+	}
+ 
+	public void setBirthDate(String birthdate) {
+		this.birthDate = birthdate;
 	}
 	
 }
