@@ -11,6 +11,8 @@ public abstract class _ProductDTO {
 	private Long id;
 	private String name;
 	private Long value;
+        private String marca;
+        private String fechaExpedicion;
 
 	public Long getId() {
 		return id;
@@ -33,5 +35,20 @@ public abstract class _ProductDTO {
 	public void setValue(Long value) {
 		this.value = value;
 	}
+        
+        public String getMarca() {
+		return marca;
+	}
+ 
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
 	
+        public String getFechaExpedicion() {
+		return fechaExpedicion;
+	}
+ 
+	public void setFechaExpedicion(String fechaExpedicion) {
+		this.fechaExpedicion = fechaExpedicion;
+	}
 }
