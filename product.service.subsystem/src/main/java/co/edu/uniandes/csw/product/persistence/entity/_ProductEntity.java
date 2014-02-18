@@ -19,6 +19,7 @@ public abstract class _ProductEntity {
 	private Long value;
         private String marca;
         private String fechaExpedicion;
+        private String picture;
 
 	public Long getId() {
 		return id;
@@ -56,5 +57,13 @@ public abstract class _ProductEntity {
  
 	public void setFechaExpedicion(String fechaExpedicion) {
 		this.fechaExpedicion = fechaExpedicion;
+	}
+        
+         public String getPicture() {
+		return picture;
+	}
+ 
+	public void setPicture(String picture) {
+		this.picture = picture;
 	}
 }

@@ -10,7 +10,8 @@ define([], function() {
  ,  
 		 'fechaExpedicion' : ''
  ,
-                 'pista' : ''
+                 'picture' : ''                 
+                 
         },
         initialize: function() {
         },
@@ -52,7 +53,7 @@ App.Model.ProductModel = Backbone.Model.extend({
                 return "You must set a value in Attribute";
             }
             
-            if (attrs.pista == '') {
+            if (attrs.picture == '') {
                 return "You must set a value in Attribute";
             }
         }        
